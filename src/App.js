@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Homepage from './Homepage';
+import Homepage1 from './Homepage1';
+
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       
     </div>
     <Homepage/>
+    <Homepage1/>
+   
     </>
   );
 }

@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 import './Homepage.css'
 
-class Homepage extends Component {
+class Homepage1 extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             maindata:[],
-            total:"Retrieving..",
-            newcase:"Retrieving..",
-            recoverd:"Retrieving..",
-            death:"Retrieving..",time:""
+            total:"Retrieving",
+            newcase:"Retrieving",
+            recoverd:"Retrieving",
+            death:"Retrieving",time:""
 
                  
         }
     }
   componentDidMount()
   {
-    fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=India", {
+    fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
@@ -26,15 +26,16 @@ class Homepage extends Component {
     })
     .then(response=>response.json())
     .then(response => {
-       
+        
         this.setState(
             {
                 maindata:response,
-                total:response.latest_stat_by_country[0].total_cases,
-                newcase:response.latest_stat_by_country[0].new_cases,
-                recoverd:response.latest_stat_by_country[0].total_recovered,
-                death:response.latest_stat_by_country[0].total_deaths,
-                time:response.latest_stat_by_country[0].record_date
+                time:response.statistic_taken_at,
+                total:response.total_cases,
+                newcase:response.new_cases,
+                recoverd:response.total_recovered,
+                death:response.total_deaths
+                
 
             }
         )
@@ -54,7 +55,7 @@ class Homepage extends Component {
         <h6>Data on :  {this.state.time}</h6>
                     </div>
                     <div className="h1e">
-                    <h1>COVID-19 INDIA</h1>
+                    <h1>COVID-19 WORLD</h1>
                     </div>
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
         <div className="container">
@@ -105,10 +106,12 @@ class Homepage extends Component {
                 <br></br>
 
                 <br></br>
-                
+                <div className="footer">
+                   <p>Copyright@<a  href="https://www.linkedin.com/in/imrvj/">imrvj </a> | Source : <a href="https://rapidapi.com">RapidAPI</a> </p>
+                </div>
             </div>
         )
     }
 }
 
-export default Homepage
+export default Homepage1
