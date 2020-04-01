@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Homepage.css'
 
+const B=process.env.REACT_APP_API_KEY;
 class Homepage1 extends Component {
     constructor(props) {
         super(props)
@@ -21,7 +22,7 @@ class Homepage1 extends Component {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-            "x-rapidapi-key": "b8990427a1msh458d3949374f526p1dea1bjsn34fbf66b5f8a"
+            "x-rapidapi-key": B
         }
     })
     .then(response=>response.json())

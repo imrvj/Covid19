@@ -9,7 +9,7 @@ body{
     width: 400px;
     height: 600px;
     
-    margin: 50px;
+    margin: 20px;
    
     margin-top: -10px;
    
@@ -90,8 +90,8 @@ body{
     color: white;
     text-align: center;
     padding: 5px;
-   
-    margin-left: 65px;
+   margin:20px;
+    margin-left: 35px;
    
     
 }
