@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Homepage.css'
 
+
 const A=process.env.REACT_APP_API_KEY;
 
 class Homepage extends Component {
@@ -30,12 +31,20 @@ class Homepage extends Component {
     .then(response => {
       
       
+      if(!response.latest_stat_by_country[0].new_cases)
+      {
+        this.setState("No Data")
+      }
+      else
+      {
+        this.setState({newcase:response.latest_stat_by_country[0].new_cases})
+      }
        
         this.setState(
             {
                 maindata:response,
                 total:response.latest_stat_by_country[0].total_cases,
-                newcase:response.latest_stat_by_country[0].new_cases,
+              
                 recoverd:response.latest_stat_by_country[0].total_recovered,
                 death:response.latest_stat_by_country[0].total_deaths,
                 time:response.latest_stat_by_country[0].record_date
@@ -53,10 +62,12 @@ class Homepage extends Component {
     
         return (
             <div>
+              
                 <div className="mainBox">
                     <div className="contact">
         <h6>Data on :  {this.state.time}</h6>
                     </div>
+                   
                     <div className="h1e">
                     <h1>COVID-19 INDIA</h1>
                     </div>
