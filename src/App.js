@@ -2,6 +2,7 @@ import React from 'react';
 
 import Homepage from './Homepage';
 import Homepage1 from './Homepage1';
+import State from './State';
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <>    <div className="App">
       
     </div>
-    
+    <State/>
     <Homepage/>
     <Homepage1/>
    
