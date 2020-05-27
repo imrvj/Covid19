@@ -20,26 +20,27 @@ class Homepage extends Component {
     }
   componentDidMount()
   {
-    fetch("https://covid19india.p.rapidapi.com/getStateData/DL", {
+    fetch("https://coronavirus-tracker-india-covid-19.p.rapidapi.com/api/getStatewise", {
         "method": "GET",
         "headers": {
-            "x-rapidapi-host": "covid19india.p.rapidapi.com",
+            "x-rapidapi-host": "coronavirus-tracker-india-covid-19.p.rapidapi.com",
             "x-rapidapi-key": A
         }
     })
     .then(response=>response.json())
     .then(response => {
+      console.log(response[8]);
       
-        console.log(response.response)
+        
         
       
         this.setState(
             {
-                maindata:response.response,
-                total:response.response.confirmed,
-                recoverd:response.response.recovered,
-                death:response.response.deaths,
-                newcase:response.response.active
+                
+                total:response[8].cases,
+                recoverd:response[8].recovered,
+                death:response[8].deaths,
+                newcase:"NA"
                 
 
             }
